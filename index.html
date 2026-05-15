@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website DeepTalk</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Pastikan styles.css ada di folder yang benar -->
+</head>
+<body>
+    <header>
+        <h1>INES SINTYA</h1>
+        <p>She Is My Beautiful Girl</p>
+    </header>
+    
+    <main>
+        <section class="about">
+            <h2>Pesan</h2>
+            <p>
+                Aku tahu kamu memang bukan yang pertama, 
+                Tapi kamu adalah yang terakhir yang aku harap ada. 
+                Di setiap langkah yang telah berlalu, 
+                Aku belajar, dan aku tumbuh, 
+                Hingga akhirnya aku menemui kamu.
+                
+                Kamu bukan yang pertama yang aku cintai, 
+                Tapi kamu adalah yang pertama yang membuatku merasa di rumah. 
+                Di pelukanmu, aku menemukan tempat yang aman, 
+                Di matamu, aku melihat masa depan yang indah.
+                
+                Mungkin kita nggak bisa menghapus semua kenangan yang ada, 
+                Tapi aku percaya, denganmu, aku bisa membuat kenangan baru. 
+                Kenangan yang lebih kuat, lebih berarti, 
+                Karena kamu adalah orang yang membuatku ingin bertahan, 
+                Menjalani hari-hari ke depan, bersama kamu.
+                
+                Kamu bukan yang pertama, 
+                Tapi kamu adalah yang terakhir yang aku harap takkan pernah pergi. 
+                Karena cinta kita bukan tentang siapa yang datang duluan, 
+                Tapi tentang siapa yang ada untuk tetap di sini, 
+                Menemani, mencintai, dan saling menguatkan.
+                
+                Dan meski bukan yang pertama, 
+                Aku percaya kita bisa saling jadi yang terbaik, 
+                Untuk satu sama lain, 
+                Seperti yang selalu aku inginkan. 
+                Kamu adalah bagian terakhir yang aku harap tetap ada.
+            </p>
+        </section>
+
+<section class="gallery">
+
+    <h2>💙 Happy Birthday Sayangkuuu 🎂✨</h2>
+
+    <div class="gallery-container">
+
+        <div class="photo-card">
+            <img src="cantiku.jpg" alt="Kenangan1">
+                        <div class="kiss-emoji  ">
+    (｡♥‿♥｡) 💖
+                        </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="cintaku.jpg" alt="Kenangan2">
+                        <div class="kiss-emoji">
+    💗૮₍ ˃ ⤙ ˂ ₎ა
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="cayangku.jpg" alt="Kenangan3">
+                        <div class="kiss-emoji">
+    (づ｡◕‿‿◕｡)づ 💖
+            </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="lofyou.jpg" alt="Kenangan4">
+                        <div class="kiss-emoji
+">
+૮ ˶ᵔ ᵕ ᵔ˶ ა 💕
+                        </div>
+        </div>
+
+        <div class="photo-card">
+            <img src="gatau.png" alt="Kenangan5">
+                                    <div class="kiss-emoji-last">
+    ( ˘ ³˘)♥
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="message">
+
+    <h2>Pesan Cinta 💌</h2>
+
+    <p class="message-subtitle">
+        Tulis sesuatu yang ingin kamu sampaikan :)
+    </p>
+
+<form
+    id="loveForm"
+    action="https://formspree.io/f/xkoydjry"
+    method="POST">
+
+        <input
+            type="text"
+            name="nama"
+            placeholder="Nama kamu..."
+            required>
+
+        <textarea
+            id="loveMessage"
+            name="pesan"
+            placeholder="Tulis pesan untuk Arya di sini..."
+            maxlength="500"
+            required></textarea>
+
+        <p id="charCount">500 karakter tersisa</p>
+
+        <button type="submit">
+            Kirim Pesan
+        </button>
+
+    </form>
+
+    <div id="messageOutput"></div>
+
+</section>
+    </main>
+
+    <footer>
+        <p>&copy; 12 Desember 2024, Ines Sintya Dekeng.</p>
+    </footer>
+ <!-- Floating Music Player -->
+<div class="floating-music" id="floatingMusic">
+    <button id="musicToggle">
+        ▶
+    </button>
+
+    <div class="music-info">
+        <span>Love Song</span>
+        <small>Ayo dengarkan sayang:)</small>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="musikuntukmu.mp3" type="audio/mpeg">
+    </audio>
+</div>
+    <script>
+        // Menghitung karakter yang tersisa di textarea
+        document.getElementById("loveMessage").addEventListener("input", function() {
+            const charCount = 500 - this.value.length;
+            document.getElementById("charCount").innerText = `${charCount} karakter tersisa`;
+        });
+
+        // Script untuk Floating Music Player
+        // Floating Music Player
+const musicToggle = document.getElementById("musicToggle");
+const bgMusic = document.getElementById("bgMusic");
+
+let playing = false;
+
+musicToggle.addEventListener("click", () => {
+    if (playing) {
+        bgMusic.pause();
+        musicToggle.innerHTML = "▶";
+    } else {
+        bgMusic.play();
+        musicToggle.innerHTML = "⏸";
+    }
+
+    playing = !playing;
+});
+
+const form = document.getElementById("loveForm");
+const output = document.getElementById("messageOutput");
+
+form.addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            Accept: "application/json"
+        }
+    });
+
+    if (response.ok) {
+
+        output.innerHTML =
+            "<p>Yuhu! Pesan berhasil dikirim💙</p>";
+
+        form.reset();
+        document.getElementById("charCount")
+.innerText = "500 karakter tersisa";
+
+    } else {
+
+        output.innerHTML =
+            "<p>Oh No, Gagal mengirim pesan😢</p>";
+    }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #2e2e2e;
+}
+
+header {
+    background-color: #0084ff;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+h1, h2 {
+    margin: 10px 0;
+}
+
+.about, .gallery, .message {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 250px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+/* =========================
+   PESAN CINTA - BLUE PREMIUM
+========================= */
+
+.message {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #f4f9ff
+    );
+
+    border-radius: 28px;
+    padding: 35px;
+
+    box-shadow:
+        0 10px 30px rgba(0,132,255,0.08),
+        0 0 20px rgba(0,132,255,0.05);
+
+    border: 1px solid rgba(0,132,255,0.08);
+}
+
+/* Glow biru background */
+.message::before {
+    content: "";
+
+    position: absolute;
+    top: -90px;
+    right: -90px;
+
+    width: 220px;
+    height: 220px;
+
+    background: radial-gradient(
+        circle,
+        rgba(0,132,255,0.15),
+        transparent 70%
+    );
+
+    z-index: 0;
+}
+
+.message * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Judul */
+.message h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: #0077e6;
+}
+
+.message-subtitle {
+    color: #6b7280;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+/* Input & Textarea */
+.message input,
+.message textarea {
+
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: white;
+
+    padding: 16px 18px;
+
+    border-radius: 18px;
+
+    margin-bottom: 16px;
+
+    font-size: 15px;
+
+    color: #1f2937;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(0,132,255,0.08),
+        0 5px 15px rgba(0,0,0,0.03);
+
+    transition: all 0.3s ease;
+}
+
+/* Focus effect */
+.message input:focus,
+.message textarea:focus {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,132,255,0.12),
+        inset 0 0 0 2px rgba(0,132,255,0.25);
+}
+
+/* Textarea */
+.message textarea {
+    min-height: 150px;
+    resize: none;
+    line-height: 1.7;
+}
+
+/* Counter */
+#charCount {
+    text-align: right;
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 18px;
+}
+
+/* Button */
+.message button {
+
+    width: 100%;
+
+    border: none;
+
+    padding: 15px 20px;
+
+    border-radius: 18px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #0084ff,
+        #0066ff,
+        #4da6ff
+    );
+
+    cursor: pointer;
+
+    transition: all 0.35s ease;
+
+    box-shadow:
+        0 10px 25px rgba(0,132,255,0.3);
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shine effect */
+.message button::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    left: -60%;
+
+    width: 40px;
+    height: 200%;
+
+    background: rgba(255,255,255,0.35);
+
+    transform: rotate(25deg);
+
+    transition: 0.6s;
+}
+
+.message button:hover::before {
+    left: 130%;
+}
+
+/* Hover */
+.message button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(0,132,255,0.4);
+}
+
+/* Output */
+#messageOutput {
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 500;
+    color: #0077e6;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .message {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .message h2 {
+        font-size: 24px;
+    }
+
+    .message textarea {
+        min-height: 130px;
+    }
+
+    .message button {
+        padding: 14px;
+        font-size: 15px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    position: relative;
+    bottom: 0;
+  width:100%;
+}
+
+
+/* Floating Music Player */
+.floating-music {
+    position: fixed;
+
+    right: 20px;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    padding: 10px 14px;
+    border-radius: 50px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.15),
+        0 0 20px rgba(255, 111, 165, 0.2);
+
+    z-index: 999;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease;
+}
+
+.floating-music:hover {
+    transform: translateY(-50%) scale(1.02);
+}
+
+#musicToggle {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    
+    /* Gradient lucu aesthetic */
+    background: linear-gradient(
+        135deg,
+        #ff9ecf,
+        #ff6fa5,
+        #7cc6ff
+    );
+
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+
+    /* Glow */
+    box-shadow:
+        0 0 10px rgba(255, 111, 165, 0.6),
+        0 0 20px rgba(124, 198, 255, 0.5);
+
+    transition: all 0.35s ease;
+
+    /* efek glossy */
+    position: relative;
+    overflow: hidden;
+}
+
+#musicToggle:hover {
+    transform: scale(1.12) rotate(8deg);
+
+    box-shadow:
+        0 0 15px rgba(255, 111, 165, 0.9),
+        0 0 30px rgba(124, 198, 255, 0.8);
+}
+
+.music-info {
+    display: flex;
+    flex-direction: column;
+    color: #005eff;
+    font-family: sans-serif;
+    text-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.music-info span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.music-info small {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive HP */
+@media (max-width: 600px) {
+    .floating-music {
+    right: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+        padding: 8px 12px;
+    }
+
+    .music-info span {
+        font-size: 12px;
+    }
+
+    .music-info small {
+        font-size: 10px;
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 20px 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    main {
+        padding: 12px;
+    }
+
+    .about,
+    .gallery,
+    .message {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    /* Gallery responsive */
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 10px 0;
+        border-radius: 15px;
+    }
+
+    /* Textarea responsive */
+    textarea {
+        width: 100%;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+    /* Tombol kirim */
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* Floating music player */
+    .floating-music {
+
+    width: auto;
+    max-width: 170px;
+        padding: 8px 12px;
+        gap: 8px;
+        max-width: 180px;
+    }
+
+    #musicToggle {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    .music-info span {
+        font-size: 12px;
+    }
+
+    .music-info small {
+        font-size: 10px;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 15px;
+    }
+}
+
+/* Gallery */
+.gallery-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    justify-content: center;
+}
+
+/* Card foto */
+.photo-card {
+
+    position: relative;
+}
+
+/* Foto */
+.photo-card img {
+
+    width: 250px;
+    height: 320px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
+}
+
+.photo-card img:hover {
+
+    transform: scale(1.03);
+}
+
+.kiss-emoji{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    font-size: 22px;
+
+    background: rgba(255,255,255,0.7);
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(8px);
+
+    animation: floatEmoji 2s ease-in-out infinite;
+}
+
+@keyframes floatEmoji{
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-6px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.kiss-emoji-last{
+    position: absolute;
+    top: 10px;
+    right: 160px;
+
+    font-size: 22px;
+
+    background: rgba(255,255,255,0.7);
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(8px);
+
+    animation: floatEmoji 2s ease-in-out infinite;
+}
